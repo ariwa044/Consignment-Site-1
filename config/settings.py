@@ -25,12 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', 'your-default-secret-key-here')
+SECRET_KEY = 'django-insecure-g($qdf^(m_ctt(!tkz93&-7@mw%dhr)3edk%8n4ub4fv=d!)(i'
+DEBUG=False
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = ['*', 'www.chasexpress.com', 'cargoxpress.onrender.com', 'chasexpress.com'
+ALLOWED_HOSTS = ['*', 'www.chasexpress.com', 'https://chasexpress-92945097390.europe-west1.run.app', 'chasexpress.com'
 ]
 
 # Application definition
@@ -184,6 +185,7 @@ X_FRAME_OPTIONS ='SAMEORIGIN'
 #STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+WHITENOISE_MANIFEST_STRICT = False
 
 
 
