@@ -164,7 +164,7 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://www.chasexpress.com', 'https://www.cargoxpress.onrender.com'
+    'https://www.chasexpress.com', 'https://chasexpress-six.vercel.app', 'https://chasexpress.vercel.app'
 ]
 
 #CKEDITOR_UPLOAD_PATH = "uploads/"
