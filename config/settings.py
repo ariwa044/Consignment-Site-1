@@ -184,8 +184,11 @@ X_FRAME_OPTIONS ='SAMEORIGIN'
 
 #STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-WHITENOISE_MANIFEST_STRICT = False
+from whitenoise.storage import CompressedManifestStaticFilesStorage
+class CustomWhiteNoiseStorage(CompressedManifestStaticFilesStorage):
+    manifest_strict = False
+
+STATICFILES_STORAGE = 'config.settings.CustomWhiteNoiseStorage'
 
 
 
