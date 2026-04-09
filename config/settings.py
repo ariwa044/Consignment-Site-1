@@ -31,7 +31,8 @@ DEBUG=False
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', False)
 
-ALLOWED_HOSTS = ['*', 'www.chasexpress.com', 'https://chasexpress-92945097390.europe-west1.run.app', 'chasexpress.com'
+ALLOWED_HOSTS = ['*', 'www.chasexpress.com', 'chasexpress-six.vercel.app', 'chasexpress.vercel.app'
+
 ]
 
 # Application definition
