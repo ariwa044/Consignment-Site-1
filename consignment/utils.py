@@ -1,14 +1,25 @@
 import requests
 import plotly.graph_objects as go
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 def geocode(address):
     url = 'https://nominatim.openstreetmap.org/search'
     params = {'q': address, 'format': 'json'}
     headers = {'User-Agent': 'GeoMapper'}
-    response = requests.get(url, params=params, headers=headers)
-    data = response.json()
-    if data:
-        return float(data[0]['lat']), float(data[0]['lon'])
+    try:
+        response = requests.get(url, params=params, headers=headers, timeout=5)
+        response.raise_for_status() # Raise for 4xx/5xx status codes
+        data = response.json()
+        if data:
+            return float(data[0]['lat']), float(data[0]['lon'])
+    except requests.RequestException as e:
+        logger.error(f"Geocoding failed for address '{address}': {e}")
+    except (ValueError, KeyError, IndexError) as e:
+        logger.error(f"Error parsing geocoding response for address '{address}': {e}")
+        
     return None, None
 
 def generate_tracking_map(package):

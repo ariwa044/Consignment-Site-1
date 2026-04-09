@@ -8,4 +8,4 @@ gunicorn
 whitenoise
 plotly
 requests
-dotenv
+python-dotenv
